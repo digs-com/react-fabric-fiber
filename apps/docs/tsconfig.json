@@ -1,0 +1,3 @@
+{
+  "extends": "@digs/typescript-config/base.json",
+}

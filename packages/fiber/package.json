@@ -1,14 +1,10 @@
 {
   "name": "react-fabric-fiber",
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "author": "Digs <dev@digs.com>",
   "license": "MIT",
   "description": "A React renderer for FabricJS",
+  "main": "dist/react-fabric-fiber.cjs.js",
   "keywords": [
     "react",
     "renderer",
@@ -28,9 +24,7 @@
     "url": "git+https://github.com/digs-com/react-fabric-fiber.git"
   },
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "dev": "tsc -w",
-    "build": "rm -rf ./dist && tsc --declarationMap false"
+    "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
     "@digs/eslint-config": "*",
