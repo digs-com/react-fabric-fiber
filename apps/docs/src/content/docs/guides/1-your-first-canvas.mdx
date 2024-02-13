@@ -1,0 +1,145 @@
+---
+title: Your First Canvas
+description: From zero to a simple canvas in 5 minutes.
+---
+
+import { TabItem, Tabs } from "@astrojs/starlight/components";
+
+## Installation
+
+Before we begin, you need to make sure you've installed all the dependencies.
+
+<Tabs>
+
+<TabItem label="npm">
+
+```sh
+npm install react-fabric-fiber fabric
+```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+pnpm add react-fabric-fiber fabric
+```
+
+</TabItem>
+<TabItem label="yarn">
+
+```sh
+yarn add react-fabric-fiber fabric
+```
+
+</TabItem>
+
+</Tabs>
+
+## Creating the Canvas
+
+Now that you have all the dependencies installed, you can create your first canvas.
+
+```jsx
+import React from "react";
+import { Canvas } from "react-fabric-fiber";
+
+export default function App() {
+  return <Canvas></Canvas>;
+}
+```
+
+By default, the `<Canvas>` will attempt to fill the parent container. If you want to create a canvas with a specific size, we recommend wrapping the `<Canvas>` in a `<div>` and setting the size of the `<div>`.
+
+```jsx
+import React from "react";
+import { Canvas } from "react-fabric-fiber";
+
+export default function App() {
+  return (
+    <div style={{ width: 400, height: 400 }}>
+      <Canvas></Canvas>
+    </div>
+  );
+}
+```
+
+## Adding Elements
+
+Now that you have a canvas, we can start adding elements to it. Let's add a simple rectangle.
+
+```jsx
+export default function App() {
+  return (
+    <Canvas>
+      <fabricRect width={200} height={200} fill="red" />
+    </Canvas>
+  );
+}
+```
+
+### What Just Happened?
+
+Under the hood, `react-fabric-fiber` took the following steps:
+
+1. Create a new `HTMLCanvasElement`
+1. Create a `new fabric.Canvas()` and attach it to the `HTMLCanvasElement`
+1. Calculates the size needed to fill the parent container, and updates the `fabric.Canvas()` to match the size.
+1. Create a `new fabric.Rect({ width: 200, height: 200, fill: "red" })` and adds it to the `fabric.Canvas()`.
+
+:::note
+Note that these are all vanilla `fabric.js` calls! Anything that you can do in `fabric.js`, you can do in `react-fabric-fiber`.
+:::
+
+## Updating Element Properties
+
+You can update the properties of an element by simply updating the props.
+
+```jsx
+export default function App() {
+  const [fill, setFill] = React.useState("red");
+  const toggleFill = () => setFill(fill === "red" ? "blue" : "red");
+
+  return (
+    <>
+      <button onClick={toggleFill}>Toggle Fill</button>
+
+      <Canvas>
+        <fabricRect width={200} height={200} fill={fill} />
+      </Canvas>
+    </>
+  );
+}
+```
+
+### Element Update Algorithm
+
+:::caution
+`react-fabric-fiber` will only update the properties of an element if they change
+:::
+
+To illustrate this, consider the following:
+
+```jsx
+export default function App() {
+  const [height, setHeight] = React.useState(0);
+  const togglePosition = () => setHeight(height === 0 ? 200 : 0);
+
+  return (
+    <>
+      <button onClick={toggleHeight}>Toggle Position</button>
+
+      <Canvas>
+        <fabricRect top={height} left={0} width={200} height={200} />
+      </Canvas>
+    </>
+  );
+}
+```
+
+Try clicking the "Toggle Position" button. You'll notice that the rectangle's verticle position changed, as expected.
+
+Now try dragging the rectangle around before toggling the position. You'll notice that the verticle position of the rectangle updated as expected, but the horizontal position did not (despite having a `left` value of `0`)! This is because the horizontal position (`left`) was never updated, and thus was not updated on the underlying object.
+
+## Next Steps
+
+You've just created your first canvas and added a rectangle to it! From here, you can start adding more elements, and even start adding interactivity to your canvas. We recommend starting by exploring the various elements and properties that `react-fabric-fiber` supports. See the [Elements API Reference](/api/interfaces/fabricelements/) for a complete list of supported elements.
