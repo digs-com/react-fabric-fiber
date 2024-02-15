@@ -2,6 +2,7 @@
   "extends": "@digs/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist",
+    "declarationMap": false,
   },
   "include": ["src", "turbo"],
   "exclude": ["node_modules", "dist"],

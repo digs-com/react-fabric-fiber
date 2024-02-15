@@ -1,6 +1,6 @@
 {
   "name": "react-fabric-fiber",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "author": "Digs <dev@digs.com>",
   "license": "MIT",
   "description": "A React renderer for FabricJS",
@@ -24,7 +24,9 @@
     "url": "git+https://github.com/digs-com/react-fabric-fiber.git"
   },
   "scripts": {
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "dev": "preconstruct dev",
+    "build": "preconstruct build"
   },
   "devDependencies": {
     "@digs/eslint-config": "*",

@@ -1,0 +1,26 @@
+name: Publish Package to npmjs
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+          registry-url: "https://registry.npmjs.org"
+          cache: yarn
+
+      - run: yarn install
+
+      - run: yarn build --filter react-fabric-fiber
+
+      - run: yarn publish
+        working-directory: packages/fiber
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
