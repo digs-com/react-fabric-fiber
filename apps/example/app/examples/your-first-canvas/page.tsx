@@ -5,14 +5,14 @@ import { Canvas } from "react-fabric-fiber";
 
 export default function Page(): JSX.Element {
   const [height, setHeight] = useState(0);
-  const toggleHeight = () => setHeight(height === 0 ? 200 : 0);
+  const togglePosition = () => setHeight(height === 0 ? 200 : 0);
 
   return (
     <>
-      <button onClick={toggleHeight}>Change Color</button>
+      <button onClick={togglePosition}>Toggle Position</button>
 
       <Canvas>
-        <fabricRect top={height} width={200} height={200} />
+        <fabricRect top={height} left={0} width={200} height={200} />
       </Canvas>
     </>
   );
