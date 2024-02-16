@@ -1,6 +1,6 @@
 {
   "name": "react-fabric-fiber",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Digs <dev@digs.com>",
   "license": "MIT",
   "description": "A React renderer for FabricJS",
@@ -31,9 +31,8 @@
   "devDependencies": {
     "@digs/eslint-config": "*",
     "@digs/typescript-config": "*",
-    "@types/fabric": "^5.3.6",
+    "@types/fabric": "^5.3.7",
     "eslint": "^8.56.0",
-    "fabric": "^5.3.0",
     "react": ">=18.0",
     "react-dom": ">=18.0",
     "typescript": "^5.3.3"
