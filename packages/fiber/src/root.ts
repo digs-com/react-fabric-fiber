@@ -59,8 +59,8 @@ export function createRoot(
     render: (elements: ReactNode) => {
       reconciler.updateContainer(elements, fiber, null, () => undefined);
     },
-    resize: (rect: fabric.ICanvasDimensions) => {
-      fabricCanvas.setDimensions(rect);
+    resize: ({ width, height }: fabric.ICanvasDimensions) => {
+      fabricCanvas.setDimensions({ width, height });
     },
     destroy: () => {
       fabricCanvas.dispose();

@@ -37,18 +37,24 @@ export const Canvas = forwardRef<HTMLCanvasElement, Props>(function Canvas(
   const root = useRef<ReconcilerRoot | null>(null);
   useLayoutEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || !containerRect.width || !containerRect.height) return;
+    const { width, height } = containerRect;
+    if (!canvas || !width || !height) return;
 
     if (!root.current) {
-      root.current = createRoot(canvas, canvasProps);
+      root.current = createRoot(canvas, { width, height, ...canvasProps });
       onCreated?.(root.current.canvas);
     }
 
-    root.current.resize(containerRect);
     root.current.render(
       <CanvasProvider root={root.current}>{children}</CanvasProvider>
     );
   });
+
+  useLayoutEffect(() => {
+    if (!root.current) return;
+
+    root.current.resize(containerRect);
+  }, [containerRect.width, containerRect.height]);
 
   useEffect(() => {
     return () => {
@@ -59,7 +65,7 @@ export const Canvas = forwardRef<HTMLCanvasElement, Props>(function Canvas(
 
   return (
     <div ref={containerRef} style={{ width: "100%", height: "100%" }}>
-      <canvas ref={canvasRef} style={{ display: "block" }} />
+      <canvas ref={canvasRef} />
     </div>
   );
 });
