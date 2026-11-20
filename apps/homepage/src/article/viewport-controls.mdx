@@ -1,0 +1,27 @@
+import { ViewportDemo } from "../demos/ViewportDemo"
+
+# Viewport controls
+
+`ViewportControls` pans and zooms the fabric viewport with configurable pointer bindings. The selectors call `setPan` and `setZoom` on the component handle, so a single scene can serve every input scheme.
+
+<ViewportDemo />
+
+```tsx
+import { ViewportControls } from "@digs/draft"
+import { Canvas, Circle, Rect } from "@digs/react-fabric-fiber"
+
+export function ZoomableScene() {
+  return (
+    <Canvas width={920} height={520}>
+      <ViewportControls
+        panTarget="background"
+        panButton={0}
+        zoomModifiers={["ctrl"]}
+        momentum={0.92}
+      />
+      <Rect position={[120, 90]} width={190} height={120} rx={12} fill="#cba6f7" />
+      <Circle position={[420, 360]} radius={64} fill="#a6e3a1" />
+    </Canvas>
+  )
+}
+```

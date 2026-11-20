@@ -1,0 +1,13 @@
+# Hooks
+
+`useFabric` returns the current `fabric.Canvas` for imperative work, and `useInvalidate` requests a new render from code that mutates fabric objects outside React.
+
+```tsx
+import { Text, useFabric } from "@digs/react-fabric-fiber"
+
+export function CanvasSizeLabel() {
+  const canvas = useFabric()
+
+  return <Text position={[24, 24]} text={`${canvas.getWidth()} × ${canvas.getHeight()}`} />
+}
+```

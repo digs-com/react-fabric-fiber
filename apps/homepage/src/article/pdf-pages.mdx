@@ -1,0 +1,24 @@
+import { PdfPageDemo } from "../demos/PdfPageDemo"
+
+# PDF pages
+
+`@digs/draft` turns a pdf.js page into fabric paths and text, so a document page stays vector and selectable instead of becoming a raster image. The canvas zooms around the pointer and pans with momentum. Use **open pdf** to load a PDF from your machine; the file is read in the browser and never leaves it.
+
+<PdfPageDemo />
+
+```tsx
+import { PDFPage, ViewportControls } from "@digs/draft"
+import { Canvas } from "@digs/react-fabric-fiber"
+import type { PDFPageProxy } from "pdfjs-dist"
+
+export function Page({ page }: { page: PDFPageProxy }) {
+  const viewport = page.getViewport({ scale: 1 })
+
+  return (
+    <Canvas width={Math.ceil(viewport.width)} height={Math.ceil(viewport.height)}>
+      <ViewportControls momentum={0.92} minZoom={0.75} />
+      <PDFPage page={page} background="#ffffff" />
+    </Canvas>
+  )
+}
+```

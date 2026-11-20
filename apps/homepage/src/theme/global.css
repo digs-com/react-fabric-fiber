@@ -1,0 +1,28 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--docs-page);
+  color: var(--docs-text);
+}
+
+::selection {
+  background-color: var(--docs-accent);
+  color: var(--docs-accent-text);
+}
+
+:root[data-theme="mocha"] .shiki span {
+  color: var(--shiki-dark);
+  font-style: var(--shiki-dark-font-style, inherit);
+}
+
+:root[data-theme="latte"] .shiki span {
+  color: var(--shiki-light);
+  font-style: var(--shiki-light-font-style, inherit);
+}
+
+input,
+button {
+  font: inherit;
+}

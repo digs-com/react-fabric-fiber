@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-docs-page: var(--docs-page);
+  --color-docs-panel: var(--docs-panel);
+  --color-docs-control: var(--docs-control);
+  --color-docs-border: var(--docs-border);
+  --color-docs-text: var(--docs-text);
+  --color-docs-muted: var(--docs-muted);
+  --color-docs-accent: var(--docs-accent);
+  --color-docs-accent-text: var(--docs-accent-text);
+  --color-docs-code: var(--docs-code);
+  --color-docs-danger: var(--docs-danger);
+}

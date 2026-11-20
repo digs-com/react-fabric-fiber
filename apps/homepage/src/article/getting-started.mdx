@@ -1,0 +1,42 @@
+import { Canvas, Circle, Rect } from "@digs/react-fabric-fiber"
+
+import { installationMethods } from "../installation/installationMethods"
+import { InstallationTabs } from "../installation/InstallationTabs"
+
+# Getting started
+
+A custom React 19 reconciler for building fabric.js v5 canvases from JSX.
+
+## Installation
+
+Install the library with its React and fabric.js peer dependencies.
+
+<InstallationTabs methods={installationMethods} initialMethod="pnpm" />
+
+## Your first scene
+
+Declare a canvas and its objects as React components. Props map to fabric object fields, while refs and events bridge back to React.
+
+<div
+  data-example="first-scene"
+  className="mt-4 h-72 w-full overflow-hidden rounded-lg border border-docs-border bg-docs-code"
+>
+  <Canvas>
+    <Rect position={[32, 64]} width={128} height={96} fill="#f38ba8" />
+    <Circle position={[200, 112]} radius={48} fill="#a6e3a1" />
+  </Canvas>
+</div>
+
+```tsx
+import type { ReactElement } from "react"
+import { Canvas, Circle, Rect } from "@digs/react-fabric-fiber"
+
+export function Scene(): ReactElement {
+  return (
+    <Canvas width={400} height={280}>
+      <Rect position={[32, 64]} width={128} height={96} fill="#f38ba8" />
+      <Circle position={[200, 112]} radius={48} fill="#a6e3a1" />
+    </Canvas>
+  )
+}
+```

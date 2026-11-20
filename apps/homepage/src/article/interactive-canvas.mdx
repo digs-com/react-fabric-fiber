@@ -1,0 +1,29 @@
+import { InteractiveCanvasDemo } from "../demos/InteractiveCanvasDemo"
+
+# Interactive canvas
+
+Shapes, text, groups and caller-owned fabric objects share one canvas. Drag or click a shape: fabric events flow back into React state.
+
+<InteractiveCanvasDemo />
+
+```tsx
+import { Canvas, Circle, Group, Primitive, Rect, Text } from "@digs/react-fabric-fiber"
+import { fabric } from "fabric"
+
+const owned = new fabric.Rect({ width: 120, height: 80, fill: "#cba6f7" })
+
+export function Scene() {
+  return (
+    <Canvas>
+      <Rect position={[48, 64]} width={160} height={110} fill="#f38ba8" />
+      <Circle position={[320, 120]} radius={64} fill="#a6e3a1" />
+      <Text position={[52, 220]} text="drag me" fontSize={26} />
+      <Group position={[500, 80]}>
+        <Rect position={[0, 0]} width={64} height={64} fill="#f9e2af" />
+        <Rect position={[80, 0]} width={64} height={64} fill="#89b4fa" />
+      </Group>
+      <Primitive object={owned} position={[520, 220]} />
+    </Canvas>
+  )
+}
+```

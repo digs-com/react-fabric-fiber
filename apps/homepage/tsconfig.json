@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@digs/draft": ["../../packages/draft/src/index.ts"],
+      "@digs/react-fabric-fiber": ["../../packages/react-fabric-fiber/src/index.ts"]
+    }
+  },
+  "include": ["src", "vite.config.ts"]
+}

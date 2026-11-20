@@ -1,0 +1,14 @@
+# Events
+
+Event props receive normalized fabric events with the target object and pointer data. Listener updates rebind in place without recreating the host object, so handlers can change on every render without disturbing the canvas.
+
+```tsx
+<Rect
+  position={[48, 64]}
+  width={160}
+  height={110}
+  fill="#f38ba8"
+  onClick={(event) => setStatus(`clicked <${event.target.type}>`)}
+  onModified={(event) => setStatus(`at ${Math.round(event.target.left ?? 0)}`)}
+/>
+```

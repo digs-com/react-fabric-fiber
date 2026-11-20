@@ -1,0 +1,26 @@
+import { GroupDemo } from "../demos/GroupDemo"
+
+# Groups
+
+A group lays out its children in group-local coordinates, then adds its own position, rotation and scale. Changing the group's transform updates every child without touching the child props.
+
+<GroupDemo />
+
+```tsx
+import { Canvas, Circle, Group, Rect, Text } from "@digs/react-fabric-fiber"
+
+export function GroupedScene() {
+  return (
+    <Canvas>
+      <Group position={[260, 190]} rotation={0} scale={1}>
+        <Rect position={[-110, -60]} width={140} height={110} rx={12} fill="#f38ba8" />
+        <Circle position={[70, 10]} radius={44} fill="#89b4fa" />
+        <Text position={[-96, -20]} text="group" fontSize={18} />
+        <Group position={[70, -70]}>
+          <Rect position={[-26, -26]} width={52} height={52} fill="#a6e3a1" />
+        </Group>
+      </Group>
+    </Canvas>
+  )
+}
+```
