@@ -13,9 +13,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm typecheck:root && pnpm test",
-    "harness": "vite test/pdf-harness",
-    "typecheck:root": "tsc -p tsconfig.json",
-    "harness:compare": "vitest run --config test/pdf-harness/vitest.config.ts"
+    "typecheck:root": "tsc -p tsconfig.json"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -1,0 +1,46 @@
+{
+  "name": "@digs/draft",
+  "version": "0.1.0",
+  "description": "Reusable React components and hooks for @digs/react-fabric-fiber scenes",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "prepack": "pnpm build",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@digs/react-fabric-fiber": "^0.1.0",
+    "fabric": "^5.5.2",
+    "pdfjs-dist": "^6.5.438",
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@digs/react-fabric-fiber": "workspace:*",
+    "@types/fabric": "^5.3.11",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "fabric": "^5.5.2",
+    "pdfjs-dist": "^6.5.438",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tsup": "^9.0.0"
+  }
+}

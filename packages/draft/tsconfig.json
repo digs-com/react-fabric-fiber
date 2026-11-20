@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@digs/draft": ["src/index.ts"],
+      "@digs/react-fabric-fiber": ["../react-fabric-fiber/src/index.ts"]
+    }
+  },
+  "include": ["src", "test", "tsup.config.ts"]
+}
